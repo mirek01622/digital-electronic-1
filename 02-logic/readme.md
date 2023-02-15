@@ -29,22 +29,66 @@
         report "Stimulus process started" severity note;
 
         -- First test case
-        s_b <= "BCD_OF_YOUR_SECOND_LAST_ID_DIGIT"; -- Such as "0101" if ID = xxxx56
-        s_a <= "BCD_OF_YOUR_LAST_ID_DIGIT";        -- Such as "0110" if ID = xxxx56
+        -- ID = 243101
+        s_b <= "0000";
+        s_a <= "0001";        
         wait for 100 ns;
         -- Expected output
-        assert ((s_B_greater_A = 'WRITE_CORRECT_VALUE_HERE') and
-                (s_B_equals_A  = 'WRITE_CORRECT_VALUE_HERE') and
-                (s_B_less_A    = 'WRITE_CORRECT_VALUE_HERE'))
+        assert ((s_B_greater_A = '0') and
+                (s_B_equals_A  = '0') and
+                (s_B_less_A    = '1'))
         -- If false, then report an error
-        report "Input combination COMPLETE_THIS_TEXT FAILED" severity error;
+        report "Input combination A = 1, B = 0" severity error;
+                
+        -- Second test case
+        s_b <= "0001";
+        s_a <= "0001";        
+        wait for 100 ns;
+        -- Expected output
+        assert ((s_B_greater_A = '0') and
+                (s_B_equals_A  = '1') and
+                (s_B_less_A    = '0'))
+        -- If false, then report an error
+        report "Input combination A = 1, B = 1" severity error;
+        
+        -- Third test case
+        s_b <= "0011";
+        s_a <= "0011";        
+        wait for 100 ns;
+        -- Expected output
+        assert ((s_B_greater_A = '1') and
+                (s_B_equals_A  = '0') and
+                (s_B_less_A    = '0'))
+        -- If false, then report an error
+        report "Input combination A = 3, B = 3 FAILED"  severity error;
+        
+        -- Fourth test case
+        s_b <= "0111";
+        s_a <= "0011";        
+        wait for 100 ns;
+        -- Expected output
+        assert ((s_B_greater_A = '1') and
+                (s_B_equals_A  = '0') and
+                (s_B_less_A    = '0'))
+        -- If false, then report an error
+        report "Input combination A = 3, B = 7"  severity error;
+        
+
+
 
         -- Report a note at the end of stimulus process
         report "Stimulus process finished" severity note;
         wait;
+
+       
+        -- Report a note at the end of stimulus process
+        report "Stimulus process finished";
+        wait; -- Data generation process is suspended forever
     end process p_stimulus;
+
+end architecture testbench;
 ```
 
 2. Link to your public EDA Playground example:
 
-   [https://www.edaplayground.com/...](https://www.edaplayground.com/...)
+   [https://www.edaplayground.com/...](https://www.edaplayground.com/x/wfVd)
