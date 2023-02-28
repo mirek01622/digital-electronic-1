@@ -7,10 +7,13 @@
 ```vhdl
 architecture Behavioral of mux_3bit_4to1 is
 begin
+with sel select
+    g_o <= a_i when "00",
+           b_i when "01",
+           c_i when "10",
+           d_i when others; -- All other combinations
 
-    -- WRITE YOUR CODE HERE
-
-end architecture Behavioral;
+end Behavioral;
 ```
 
 2. Screenshot with simulated time waveforms. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
