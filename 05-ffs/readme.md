@@ -13,9 +13,11 @@
 ```vhdl
 architecture Behavioral of jk_ff_rst is
     signal s_q : std_logic;
+    
 begin
     p_jk_ff_rst : process(clk)
     begin
+    
         if rising_edge(clk) then
             if (j = '0' and k = '0') then
                 s_q <= s_q;
@@ -28,6 +30,7 @@ begin
             end if;
         end if;
     end process p_jk_ff_rst;
+    
     -- Output ports are permanently connected to local signal
     q     <= s_q;
     q_bar <= not s_q;
