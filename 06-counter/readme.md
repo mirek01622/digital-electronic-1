@@ -10,7 +10,7 @@
     -- Clocked process with synchronous reset which implements
     -- n-bit up/down counter.
     --------------------------------------------------------
-      p_cnt_up_down : process (clk) is
+  p_cnt_up_down : process (clk) is
   begin
 
     if rising_edge(clk) then
