@@ -39,9 +39,7 @@
             if (sig_cnt < c_DELAY_4SEC) then
               sig_cnt <= sig_cnt + 1;
             else
-              -- Move to the next state
               sig_state <= WEST_WAIT;
-              -- Reset local counter value
               sig_cnt <= c_ZERO;
             end if;
 
@@ -49,9 +47,7 @@
             if (sig_cnt < c_DELAY_1SEC) then
               sig_cnt <= sig_cnt + 1;
             else
-              -- Move to the next state
               sig_state <= SOUTH_STOP;
-              -- Reset local counter value
               sig_cnt <= c_ZERO;
             end if;
             
@@ -59,9 +55,7 @@
             if (sig_cnt < c_DELAY_2SEC) then
               sig_cnt <= sig_cnt + 1;
             else
-              -- Move to the next state
               sig_state <= SOUTH_GO;
-              -- Reset local counter value
               sig_cnt <= c_ZERO;
             end if;
 
